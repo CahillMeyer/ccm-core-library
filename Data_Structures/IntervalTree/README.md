@@ -1,0 +1,57 @@
+# C++11 Interval Tree Implementation
+
+![Language](https://img.shields.io/badge/language-C%2B%2B11-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+A header-only C++11 implementation of a self-balancing Interval Tree. An Interval Tree is a data structure designed to efficiently store and query intervals (ranges). This implementation is augmented with an AVL balancing scheme to ensure that all operations maintain logarithmic time complexity.
+
+## Features
+
+* [cite_start]**Modern C++11**: Utilizes smart pointers (`std::shared_ptr`) for safe, automatic memory management.
+* [cite_start]**Header-Only Library**: Easy to integrate into any project by simply including the `IntervalTree.h` file.
+* [cite_start]**Templated & Generic**: Can be used with any comparable data type, such as `int`, `float`, or custom numeric types.
+* [cite_start]**Self-Balancing (AVL)**: Implements AVL tree rotations (`RotateLeft`, `RotateRight`) to maintain balance, ensuring that insertion and removal operations have a time complexity of O(log n).
+* [cite_start]**Rich Query API**: Provides a comprehensive set of functions to find intervals that **overlap** with a given range, **contain** a specific point, and more.
+
+## Requirements
+
+* A C++11 compatible compiler (e.g., GCC 4.8+, Clang 3.3+, MSVC 2015+).
+
+## Usage
+
+As a header-only library, no special compilation or linking is required. Simply include `IntervalTree.h` in your project and create an instance of the `IntervalTree` class.
+
+### Example
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <memory>
+#include "IntervalTree.h"
+
+int main() {
+    // Create an Interval Tree for integers
+    IntervalTree<int> tree;
+
+    // Insert intervals
+    tree.Insert(15, 20);
+    tree.Insert(10, 30);
+    tree.Insert(17, 19);
+    tree.Insert(5, 20);
+    tree.Insert(12, 15);
+    tree.Insert(30, 40);
+
+    std::cout << "Intervals in the tree: " << tree.ToString() << std::endl;
+    // Expected output (in-order): [5, 20] [10, 30] [12, 15] [15, 20] [17, 19] [30, 40]
+
+    // Query for intervals overlapping with the range [14, 16]
+    std::cout << "\nQuerying for overlaps with [14, 16]:" << std::endl;
+    auto overlapping_intervals = tree.Overlapping(14, 16);
+
+    for (const auto& p : overlapping_intervals) {
+        std::cout << "  Found overlap: [" << p.first.low << ", " << p.first.high << "]" << std::endl;
+    }
+    // Expected overlaps: [15, 20], [10, 30], [5, 20], [12, 15]
+
+    return 0;
+}
