@@ -7,11 +7,11 @@ A header-only C++11 implementation of a self-balancing Interval Tree. An Interva
 
 ## Features
 
-* [cite_start]**Modern C++11**: Utilizes smart pointers (`std::shared_ptr`) for safe, automatic memory management.
-* [cite_start]**Header-Only Library**: Easy to integrate into any project by simply including the `IntervalTree.h` file.
-* [cite_start]**Templated & Generic**: Can be used with any comparable data type, such as `int`, `float`, or custom numeric types.
-* [cite_start]**Self-Balancing (AVL)**: Implements AVL tree rotations (`RotateLeft`, `RotateRight`) to maintain balance, ensuring that insertion and removal operations have a time complexity of O(log n).
-* [cite_start]**Rich Query API**: Provides a comprehensive set of functions to find intervals that **overlap** with a given range, **contain** a specific point, and more.
+* **Modern C++11**: Utilizes smart pointers (`std::shared_ptr`) for safe, automatic memory management.
+* **Header-Only Library**: Easy to integrate into any project by simply including the `IntervalTree.h` file.
+* **Templated & Generic**: Can be used with any comparable data type, such as `int`, `float`, or custom numeric types.
+* **Self-Balancing (AVL)**: Implements AVL tree rotations (`RotateLeft`, `RotateRight`) to maintain balance, ensuring that insertion and removal operations have a time complexity of O(log n).
+* **Rich Query API**: Provides a comprehensive set of functions to find intervals that **overlap** with a given range, **contain** a specific point, and more.
 
 ## Requirements
 
