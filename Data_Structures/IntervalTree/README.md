@@ -55,3 +55,56 @@ int main() {
 
     return 0;
 }
+
+API Documentation
+The IntervalTree class provides the following public methods:
+
+Modifiers
+void Insert(T low, T high, ...): Inserts a new interval.
+
+void Remove(Interval<T> i): Removes an interval.
+
+void Update(Interval<T> oldInterval, ...): Updates an interval.
+
+void Clear(): Clears all intervals from the tree.
+
+Queries
+std::vector<...> Overlapping(T low, T high) const: Finds all intervals that overlap with a given range.
+
+std::vector<...> Containing(T value) const: Finds all intervals that contain a specific value.
+
+T MaxHighOverlapping(T low, T high) const: Finds the max high value of overlapping intervals.
+
+bool Overlaps(T low, T high) const: Checks if any interval overlaps with a range.
+
+bool Contains(T value) const: Checks if any interval contains a value.
+
+Utilities
+bool IsEmpty() const: Returns true if the tree is empty.
+
+size_t Size() const: Returns the number of intervals.
+
+std::string ToString() const: Returns an in-order string representation.
+
+Building the Tests
+This project uses CMake and the GoogleTest framework for unit testing.
+
+# 1. Clone the repository and navigate into it
+git clone <your-repo-url>
+cd <your-repo-name>
+
+# 2. Create a build directory
+mkdir build
+cd build
+
+# 3. Configure the project with CMake
+cmake ..
+
+# 4. Compile the code
+make
+
+# 5. Run the tests
+./runTests
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
